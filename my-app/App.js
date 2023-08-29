@@ -3,6 +3,7 @@ import { StyleSheet, Text, View } from 'react-native';
 import MeuComponente from './componentes/semana02/MeuComponente';
 import MeuComponente2 from './componentes/semana02/MeuComponente2';
 import MeuComponente3 from './componentes/semana02/MeuComponente3';
+import NumeroAleatorio from './componentes/semana03/NumeroAleatorio';
 
 export default function App() {
   return (
@@ -10,7 +11,14 @@ export default function App() {
       {/* <MeuComponente /> */}
       {/* <MinMax min="10" max="20" /> */}
 
-      <MeuComponente />
+      {/* <MeuComponente /> */}
+
+      <NumeroAleatorio min={1} max={60} />
+      <NumeroAleatorio min={1} max={60} />
+      <NumeroAleatorio min={1} max={60} />
+      <NumeroAleatorio min={1} max={60} />
+      <NumeroAleatorio min={1} max={60} />
+      <NumeroAleatorio min={1} max={60} />
 
 
     </View>
