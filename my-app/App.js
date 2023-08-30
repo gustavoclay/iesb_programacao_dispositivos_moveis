@@ -4,6 +4,9 @@ import MeuComponente from './componentes/semana02/MeuComponente';
 import MeuComponente2 from './componentes/semana02/MeuComponente2';
 import MeuComponente3 from './componentes/semana02/MeuComponente3';
 import NumeroAleatorio from './componentes/semana03/NumeroAleatorio';
+import Botao from './componentes/semana03/Botao';
+import Contador from './componentes/semana03/Contador';
+import DigiteSeuNome from './componentes/semana03/DigiteSeuNome';
 
 export default function App() {
   return (
@@ -13,12 +16,13 @@ export default function App() {
 
       {/* <MeuComponente /> */}
 
-      <NumeroAleatorio min={1} max={60} />
-      <NumeroAleatorio min={1} max={60} />
-      <NumeroAleatorio min={1} max={60} />
-      <NumeroAleatorio min={1} max={60} />
-      <NumeroAleatorio min={1} max={60} />
-      <NumeroAleatorio min={1} max={60} />
+      {/* <NumeroAleatorio min={1} max={60} /> */}
+
+      {/* <Botao /> */}
+
+      {/* <Contador /> */}
+
+      <DigiteSeuNome />
 
 
     </View>
