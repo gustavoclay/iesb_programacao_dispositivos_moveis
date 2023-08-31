@@ -1,12 +1,8 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import MeuComponente from './componentes/semana02/MeuComponente';
-import MeuComponente2 from './componentes/semana02/MeuComponente2';
-import MeuComponente3 from './componentes/semana02/MeuComponente3';
-import NumeroAleatorio from './componentes/semana03/NumeroAleatorio';
-import Botao from './componentes/semana03/Botao';
-import Contador from './componentes/semana03/Contador';
-import DigiteSeuNome from './componentes/semana03/DigiteSeuNome';
+import { StyleSheet, View } from 'react-native';
+import Familia from './componentes/semana04/children/Familia';
+import Filho from './componentes/semana04/children/Filho';
+
 
 export default function App() {
   return (
@@ -22,7 +18,29 @@ export default function App() {
 
       {/* <Contador /> */}
 
-      <DigiteSeuNome />
+      {/* <DigiteSeuNome /> */}
+
+      {/* <Pai /> */}
+
+      {/* <ComponenteControlado /> */}
+
+      <Familia nomeFamilia="Silva">
+        <Filho nome="Pedro" sobreNome="Silva"></Filho>
+        <Filho nome="Joao" sobreNome="Silva"></Filho>
+        <Filho nome="Davi" sobreNome="Silva"></Filho>
+        <Filho nome="Miguel" sobreNome="Silva"></Filho>
+      </Familia>
+
+
+      <Familia nomeFamilia="Figueiredo">
+        <Filho nome="Julia" sobreNome="Figueiredo"></Filho>
+        <Filho nome="Joao" sobreNome="Figueiredo"></Filho>
+        <Filho nome="Miguel" sobreNome="Figueiredo"></Filho>
+        <Filho nome="Maria" sobreNome="Figueiredo"></Filho>
+      </Familia>
+
+
+
 
 
     </View>
