@@ -1,49 +1,17 @@
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
-import Familia from './componentes/semana04/children/Familia';
-import Filho from './componentes/semana04/children/Filho';
+import { StyleSheet } from 'react-native';
+import Profile from './componentes/semana04/Profile';
 
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      {/* <MeuComponente /> */}
-      {/* <MinMax min="10" max="20" /> */}
-
-      {/* <MeuComponente /> */}
-
-      {/* <NumeroAleatorio min={1} max={60} /> */}
-
-      {/* <Botao /> */}
-
-      {/* <Contador /> */}
-
-      {/* <DigiteSeuNome /> */}
-
-      {/* <Pai /> */}
-
-      {/* <ComponenteControlado /> */}
-
-      <Familia nomeFamilia="Silva">
-        <Filho nome="Pedro" sobreNome="Silva"></Filho>
-        <Filho nome="Joao" sobreNome="Silva"></Filho>
-        <Filho nome="Davi" sobreNome="Silva"></Filho>
-        <Filho nome="Miguel" sobreNome="Silva"></Filho>
-      </Familia>
-
-
-      <Familia nomeFamilia="Figueiredo">
-        <Filho nome="Julia" sobreNome="Figueiredo"></Filho>
-        <Filho nome="Joao" sobreNome="Figueiredo"></Filho>
-        <Filho nome="Miguel" sobreNome="Figueiredo"></Filho>
-        <Filho nome="Maria" sobreNome="Figueiredo"></Filho>
-      </Familia>
-
-
-
-
-
-    </View>
+    <Profile
+      imgUri='https://www.fakepersongenerator.com/Face/female/female20161024753601562.jpg'
+      genero='Feminino'
+      nome='Felicia J Ochoa'
+      email='aiyana1980@gmail.com'
+      telefone='630-337-6439'
+    />
   );
 }
 
