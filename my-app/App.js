@@ -1,17 +1,30 @@
 import React from 'react';
-import { StyleSheet } from 'react-native';
-import Profile from './componentes/semana04/Profile';
+import { StyleSheet, View, Text } from 'react-native';
+import { Card, Avatar, Button } from 'react-native-paper';
 
 
 export default function App() {
+
+  const LeftContent = props => <Avatar.Icon {...props} icon="folder" />
+
+
   return (
-    <Profile
-      imgUri='https://www.fakepersongenerator.com/Face/female/female20161024753601562.jpg'
-      genero='Feminino'
-      nome='Felicia J Ochoa'
-      email='aiyana1980@gmail.com'
-      telefone='630-337-6439'
-    />
+    <View style={styles.container}>
+      <Card>
+        <Card.Title title="Titulo" left={LeftContent} />
+        <Card.Content>
+          <Text variant="titleLarge">Card title</Text>
+          <Text variant="bodyMedium">Card content</Text>
+        </Card.Content>
+        <Card.Cover source={{ uri: 'https://picsum.photos/700' }} />
+        <Card.Actions>
+          <Button >Cancel</Button>
+          <Button>Ok</Button>
+        </Card.Actions>
+      </Card>
+
+    </View>
+
   );
 }
 
@@ -23,3 +36,5 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
+
+
