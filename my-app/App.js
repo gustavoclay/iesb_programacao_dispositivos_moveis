@@ -2,14 +2,14 @@ import React from 'react';
 import {
   PaperProvider
 } from 'react-native-paper';
-import Home from './src/screens/home/Home';
+import Router from './src/routes/Router';
 
 
 export default function App() {
 
   return (
     <PaperProvider>
-      <Home />
+      <Router />
     </PaperProvider>
   );
 }
