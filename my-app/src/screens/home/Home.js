@@ -31,7 +31,7 @@ export default function Home(props) {
 
             <Text style={{ fontSize: 30 }}>Home</Text>
 
-            <Button mode='outlined' onPress={irParaAScreenFeed} >Ir para Feed</Button>
+            <Button mode='outlined' loading={true} onPress={irParaAScreenFeed} >Ir para Feed</Button>
 
             <FlatList
                 style={styles.listPessoas}
