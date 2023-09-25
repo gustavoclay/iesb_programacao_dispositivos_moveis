@@ -8,10 +8,9 @@ export default function CategoriaItem({ categoria, navigation }) {
         navigation.navigate('Categoria', categoria)
     }
 
-
     return (
         <View style={styles.container}>
-            <Button mode='contained-tonal' onPress={navegarParaCategoria}>{String(categoria).toUpperCase()}</Button>
+            <Button mode='outlined' style={styles.button} onPress={navegarParaCategoria}>{String(categoria).toUpperCase()}</Button>
         </View>
     )
 }
@@ -19,6 +18,9 @@ export default function CategoriaItem({ categoria, navigation }) {
 const styles = StyleSheet.create({
     container: {
         marginTop: 10
+    },
+    button: {
+        borderWidth: 2
     }
 
 

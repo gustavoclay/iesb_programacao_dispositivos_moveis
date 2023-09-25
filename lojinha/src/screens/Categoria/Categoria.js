@@ -4,6 +4,7 @@ import { Text } from 'react-native-paper'
 
 import { FlatList } from 'react-native-gesture-handler'
 import Api from '../../services/Api'
+import ProdutoItem from './ProdutoItem/ProdutoItem'
 
 export default function Categoria(props) {
 
@@ -16,10 +17,9 @@ export default function Categoria(props) {
         Api.get(`/products/category/${categoriaRecebida}`)
             .then(response => {
                 setProdutos(response.data.products)
-                console.log(response.data.products)
             })
             .catch(error => {
-                console.log("DEU ERRO NA CHAMDA DE CATEGORIAS: ", error)
+                console.log("DEU ERRO NA CHAMADA DE CATEGORIAS: ", error)
             })
 
     }, [])
@@ -33,7 +33,13 @@ export default function Categoria(props) {
             </View>
 
 
-            <FlatList data={produtos} renderItem={({ item }) => <Text>{item.title}</Text>} />
+            <FlatList
+                style={styles.listArea}
+                showsVerticalScrollIndicator={false}
+                data={produtos}
+                renderItem={({ item }) => <ProdutoItem produto={item} navigation={props.navigation} />}
+            />
+
         </View>
     )
 }
@@ -51,5 +57,8 @@ const styles = StyleSheet.create({
     title: {
         fontWeight: 'bold',
         textAlign: 'center'
+    },
+    listArea: {
+        width: '90%'
     }
 })

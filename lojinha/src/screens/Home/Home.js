@@ -31,7 +31,8 @@ export default function Home({ navigation, route }) {
             </View>
 
             <FlatList
-                style={{ width: '90%' }}
+                style={styles.listArea}
+                showsVerticalScrollIndicator={false}
                 data={categorias}
                 renderItem={({ item }) => <CategoriaItem categoria={item} navigation={navigation} />}
             />
@@ -53,5 +54,8 @@ const styles = StyleSheet.create({
     title: {
         fontWeight: 'bold',
         textAlign: 'center'
+    },
+    listArea: {
+        width: '90%'
     }
 })
