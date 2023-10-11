@@ -3,10 +3,9 @@ import { NavigationContainer } from "@react-navigation/native";
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
 
-
-import Usuarios from "../screens/Usuarios/Usuarios";
-import Posts from '../screens/Posts/Posts';
 import Citacoes from '../screens/Citacoes/Citacoes';
+import Posts from '../screens/Posts/Posts';
+import Usuarios from "../screens/Usuarios/Usuarios";
 
 const Tab = createBottomTabNavigator();
 
@@ -17,10 +16,10 @@ export default function TabRoutes() {
         <NavigationContainer>
 
             <Tab.Navigator
-            initialRouteName='Posts'
-            screenOptions={{
-                headerShown: false
-            }}
+                initialRouteName='Posts'
+                screenOptions={{
+                    headerShown: false
+                }}
             >
 
                 <Tab.Screen
