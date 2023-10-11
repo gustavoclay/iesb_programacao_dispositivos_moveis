@@ -9,7 +9,7 @@ const Drawer = createDrawerNavigator();
 export default function Routes() {
     return (
         <NavigationContainer>
-            <Drawer.Navigator in>
+            <Drawer.Navigator initialRouteName='Inicio'>
 
                 <Drawer.Screen name='Inicio' component={TabRoutes} />
 
