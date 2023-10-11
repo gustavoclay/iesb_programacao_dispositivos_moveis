@@ -11,7 +11,7 @@ import Citacoes from '../screens/Citacoes/Citacoes';
 const Tab = createBottomTabNavigator();
 
 
-export default function Routes() {
+export default function TabRoutes() {
     return (
 
         <NavigationContainer>
