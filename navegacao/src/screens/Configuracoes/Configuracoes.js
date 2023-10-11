@@ -2,14 +2,14 @@ import React from 'react'
 import { StyleSheet, View } from 'react-native'
 import { Button, Text } from 'react-native-paper'
 
-export default function Profile({navigation, route}) {
+export default function Configuracoes({navigation, route}) {
     return (
         <View style={styles.container}>
-            <Text variant='displayLarge'>Profile</Text>
-            <Button 
-            mode='contained'
-                onPress={() => navigation.navigate('Posts')}
-            >Ir para Posts</Button>
+            <Text variant='displayLarge'>Configurações</Text>
+            <Button
+                mode='contained'
+                onPress={() => navigation.push('Profile')}
+            >Ir para Configurações</Button>
         </View>
     )
 }
@@ -20,4 +20,5 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center'
     }
+
 })

@@ -24,7 +24,7 @@ export default function TabRoutes() {
                 options={{
                     tabBarLabel: 'Usuários',
                     tabBarIcon: ({ color, size }) => {
-                        return <Ionicons name='people-outline' color={color} size={size} />
+                        return <Ionicons name='megaphone-outline' color={color} size={size} />
                     }
                 }}
             />
