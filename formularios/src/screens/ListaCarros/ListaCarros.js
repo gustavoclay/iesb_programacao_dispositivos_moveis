@@ -6,16 +6,52 @@ export default function ListaCarros() {
 
     const [carros, setCarros] = useState(["Gol", "Civic"])
     const [inputValue, setInputValue] = useState('')
+    const [editando, setEditando] = useState(false)
+    const [carroSendoEditado, setCarroSendoEditado] = useState(null)
 
     function adicionarCarro() {
+        console.log('ADICIONAR CARRO')
         let novaListaCarros = carros
         novaListaCarros.push(inputValue)
-
         setCarros(novaListaCarros)
+        setCarroSendoEditado(null)
         setInputValue('')
     }
 
+    function editarCarro() {
+        console.log('EDITAR CARRO')
+        console.log('carroSendoEditado: ', carroSendoEditado)
+        console.log('carroASerEditado inputValue: ', inputValue)
 
+        let index = carros.indexOf(carroSendoEditado)
+        let novaListaCarros = carros
+
+        novaListaCarros.splice(index, 1, inputValue)
+
+        setCarros(novaListaCarros)
+        setEditando(false)
+        setInputValue('')
+    }
+
+    function excluirCarro(carro) {
+        let novaListaCarros = carros.filter(item => item !== carro)
+        setCarros(novaListaCarros)
+    }
+
+    function handleEditarCarro(carro) {
+        setCarroSendoEditado(carro)
+        setInputValue(carro)
+        setEditando(true)
+    }
+
+    function handleButton() {
+        console.log('HANDLE BUTTON -> editando: ', editando)
+        if (editando) {
+            editarCarro()
+        } else {
+            adicionarCarro()
+        }
+    }
 
     return (
         <View style={styles.container}>
@@ -26,7 +62,6 @@ export default function ListaCarros() {
                     style={{ flex: 4 }}
                     mode='outlined'
                     label='Carro'
-                    placeholder='Adicionar o carro'
                     value={inputValue}
                     onChangeText={(text) => setInputValue(text)}
                 />
@@ -35,9 +70,9 @@ export default function ListaCarros() {
                 <Button
                     style={styles.button}
                     mode='contained'
-                    onPress={adicionarCarro}
+                    onPress={handleButton}
                 >
-                    Add
+                    {editando ? 'Edit' : 'Add'}
                 </Button>
 
             </View>
@@ -49,22 +84,22 @@ export default function ListaCarros() {
                 data={carros}
                 renderItem={({ item }) => (
                     <Card
-                    style={styles.card}
-                    mode='outlined'
+                        style={styles.card}
+                        mode='outlined'
                     >
-                        <Card.Content>
-                            <Text>{item}</Text>
-                            <IconButton icon='pen' />
-                            <IconButton icon='trash-can-outline'/>
+                        <Card.Content style={styles.cardContent}>
+                            <Text variant='titleMedium' style={{ flex: 1 }}>{item}</Text>
+                            <IconButton icon='pen' onPress={() => {
+                                handleEditarCarro(item)
+                            }} />
+                            <IconButton icon='trash-can-outline' onPress={() => {
+                                excluirCarro(item)
+                            }} />
                         </Card.Content>
                     </Card>
                 )}
 
             />
-
-
-
-
 
         </View>
     )
@@ -93,5 +128,10 @@ const styles = StyleSheet.create({
     },
     card: {
         margin: 5
+    },
+    cardContent: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'center'
     }
 })
