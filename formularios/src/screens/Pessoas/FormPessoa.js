@@ -74,6 +74,7 @@ export default function FormPessoa({ navigation, route }) {
                     mode='outlined'
                     value={nome}
                     onChangeText={text => setNome(text)}
+                    onFocus={() => setShowMensagemErro(false) }
                 />
 
                 <TextInput
@@ -83,6 +84,7 @@ export default function FormPessoa({ navigation, route }) {
                     keyboardType='numeric'
                     value={idade}
                     onChangeText={text => setIdade(text)}
+                    onFocus={() => setShowMensagemErro(false)}
                 />
 
                 <TextInput
@@ -92,6 +94,7 @@ export default function FormPessoa({ navigation, route }) {
                     keyboardType='numeric'
                     value={peso}
                     onChangeText={text => setPeso(text)}
+                    onFocus={() => setShowMensagemErro(false)}
                 />
 
                 <TextInput
@@ -101,6 +104,7 @@ export default function FormPessoa({ navigation, route }) {
                     keyboardType='numeric'
                     value={altura}
                     onChangeText={text => setAltura(text)}
+                    onFocus={() => setShowMensagemErro(false)}
                 />
 
                 {showMensagemErro &&

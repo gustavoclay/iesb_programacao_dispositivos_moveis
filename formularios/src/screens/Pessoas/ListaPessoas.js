@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { FlatList, StyleSheet, View } from 'react-native'
-import { Button, Card, FAB, MD3Colors, Text } from 'react-native-paper'
+import { Button, Card, Dialog, FAB, MD3Colors, Portal, Text } from 'react-native-paper'
 import Toast from 'react-native-toast-message'
 
 
@@ -20,6 +20,13 @@ export default function ListaPessoas({ navigation, route }) {
       peso: '70'
     }
   ])
+  const [showModalExcluirUsuario, setShowModalExcluirUsuario] = useState(true)
+  const [pessoaASerExcluida, setPessoaASerExcluida] = useState(null)
+
+  const showModal = () => setShowModalExcluirUsuario(true);
+
+  const hideModal = () => setShowModalExcluirUsuario(false);
+
 
   function adicionarPessoa(pessoa) {
     let novaListaPessoas = pessoas
@@ -32,12 +39,12 @@ export default function ListaPessoas({ navigation, route }) {
     console.log('DADOS NOVOS -> ', novosDados)
 
     const novaListaPessoas = pessoas.map(pessoa => {
-     if(pessoa == pessoaAntiga){
-       return novosDados
-     } else {
-       return pessoa
-     }
-   })
+      if (pessoa == pessoaAntiga) {
+        return novosDados
+      } else {
+        return pessoa
+      }
+    })
 
     setPessoas(novaListaPessoas)
 
@@ -50,6 +57,12 @@ export default function ListaPessoas({ navigation, route }) {
       type: 'success',
       text1: 'Pessoa excluida com sucesso!'
     })
+  }
+
+  function handleExluirPessoa() {
+    excluirPessoa(pessoaASerExcluida)
+    setPessoaASerExcluida(null)
+    hideModal()
   }
 
   function getImc(pessoa) {
@@ -93,7 +106,10 @@ export default function ListaPessoas({ navigation, route }) {
               <Button onPress={() => navigation.push('FormPessoa', { acao: editarPessoa, pessoa: item })}>
                 Editar
               </Button>
-              <Button onPress={() => excluirPessoa(item)}>
+              <Button onPress={() => {
+                setPessoaASerExcluida(item)
+                showModal()
+              }}>
                 Excluir
               </Button>
             </Card.Actions>
@@ -101,11 +117,27 @@ export default function ListaPessoas({ navigation, route }) {
         )}
       />
 
+      {/* Botão Flutuante */}
       <FAB
         icon="plus"
         style={styles.fab}
         onPress={() => navigation.push('FormPessoa', { acao: adicionarPessoa })}
       />
+
+
+      {/* Modal Excluir Usuário */}
+      <Portal>
+        <Dialog visible={showModalExcluirUsuario} onDismiss={hideModal}>
+          <Dialog.Title>Atenção!</Dialog.Title>
+          <Dialog.Content>
+            <Text variant="bodyMedium">Tem certeza que deseja excluir este usuário?</Text>
+          </Dialog.Content>
+          <Dialog.Actions>
+            <Button onPress={hideModal}>Voltar</Button>
+            <Button onPress={handleExluirPessoa}>Tenho Certeza</Button>
+          </Dialog.Actions>
+        </Dialog>
+      </Portal>
 
     </View>
   )
