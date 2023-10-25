@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { FlatList, StyleSheet, View } from 'react-native'
 import { Button, Card, FAB, MD3Colors, Text } from 'react-native-paper'
+import Toast from 'react-native-toast-message'
 
 
 export default function ListaPessoas({ navigation, route }) {
@@ -26,9 +27,29 @@ export default function ListaPessoas({ navigation, route }) {
     setPessoas(novaListaPessoas)
   }
 
+  function editarPessoa(pessoaAntiga, novosDados) {
+    console.log('PESSOA ANTIGA -> ', pessoaAntiga)
+    console.log('DADOS NOVOS -> ', novosDados)
+
+    const novaListaPessoas = pessoas.map(pessoa => {
+     if(pessoa == pessoaAntiga){
+       return novosDados
+     } else {
+       return pessoa
+     }
+   })
+
+    setPessoas(novaListaPessoas)
+
+  }
+
   function excluirPessoa(pessoa) {
     const novaListaPessoa = pessoas.filter(p => p !== pessoa)
     setPessoas(novaListaPessoa)
+    Toast.show({
+      type: 'success',
+      text1: 'Pessoa excluida com sucesso!'
+    })
   }
 
   function getImc(pessoa) {
@@ -69,7 +90,7 @@ export default function ListaPessoas({ navigation, route }) {
 
             </Card.Content>
             <Card.Actions>
-              <Button>
+              <Button onPress={() => navigation.push('FormPessoa', { acao: editarPessoa, pessoa: item })}>
                 Editar
               </Button>
               <Button onPress={() => excluirPessoa(item)}>
