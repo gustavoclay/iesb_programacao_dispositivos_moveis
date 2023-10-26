@@ -1,40 +1,42 @@
-import React, { useState } from 'react'
+import AsyncStorage from '@react-native-async-storage/async-storage'
+import React, { useEffect, useState } from 'react'
 import { FlatList, StyleSheet, View } from 'react-native'
 import { Button, Card, Dialog, FAB, MD3Colors, Portal, Text } from 'react-native-paper'
 import Toast from 'react-native-toast-message'
 
 
-export default function ListaPessoas({ navigation, route }) {
+export default function ListaPessoasAsyncStorage({ navigation, route }) {
 
-  const [pessoas, setPessoas] = useState([
-    {
-      nome: 'João Paulo',
-      idade: '25',
-      altura: '189',
-      peso: '80,5'
-    },
-    {
-      nome: 'Jorge Luiz',
-      idade: '20',
-      altura: '180',
-      peso: '70'
-    }
-  ])
+  const [pessoas, setPessoas] = useState([])
   const [showModalExcluirUsuario, setShowModalExcluirUsuario] = useState(false)
   const [pessoaASerExcluida, setPessoaASerExcluida] = useState(null)
+
+
+  useEffect(() => {
+    loadPessoas()
+  }, [])
+
+  async function loadPessoas() {
+    const response = await AsyncStorage.getItem('pessoas')
+    console.log("🚀 ~ file: ListaPessoasAsyncStorage.js:21 ~ loadPessoas ~ response:", response)
+    const pessoasStorage = response ? JSON.parse(response) : []
+    setPessoas(pessoasStorage)
+  }
+
+
 
   const showModal = () => setShowModalExcluirUsuario(true);
 
   const hideModal = () => setShowModalExcluirUsuario(false);
 
-
-  function adicionarPessoa(pessoa) {
+  async function adicionarPessoa(pessoa) {
     let novaListaPessoas = pessoas
     novaListaPessoas.push(pessoa)
+    await AsyncStorage.setItem('pessoas', JSON.stringify(novaListaPessoas));
     setPessoas(novaListaPessoas)
   }
 
-  function editarPessoa(pessoaAntiga, novosDados) {
+  async function editarPessoa(pessoaAntiga, novosDados) {
     console.log('PESSOA ANTIGA -> ', pessoaAntiga)
     console.log('DADOS NOVOS -> ', novosDados)
 
@@ -46,13 +48,15 @@ export default function ListaPessoas({ navigation, route }) {
       }
     })
 
+    await AsyncStorage.setItem('pessoas', JSON.stringify(novaListaPessoas))
     setPessoas(novaListaPessoas)
 
   }
 
-  function excluirPessoa(pessoa) {
-    const novaListaPessoa = pessoas.filter(p => p !== pessoa)
-    setPessoas(novaListaPessoa)
+  async function excluirPessoa(pessoa) {
+    const novaListaPessoas = pessoas.filter(p => p !== pessoa)
+    await AsyncStorage.setItem('pessoas', JSON.stringify(novaListaPessoas))
+    setPessoas(novaListaPessoas)
     Toast.show({
       type: 'success',
       text1: 'Pessoa excluida com sucesso!'
@@ -103,7 +107,7 @@ export default function ListaPessoas({ navigation, route }) {
 
             </Card.Content>
             <Card.Actions>
-              <Button onPress={() => navigation.push('FormPessoa', { acao: editarPessoa, pessoa: item })}>
+              <Button onPress={() => navigation.push('FormPessoaAsyncStorage', { acao: editarPessoa, pessoa: item })}>
                 Editar
               </Button>
               <Button onPress={() => {
@@ -121,7 +125,7 @@ export default function ListaPessoas({ navigation, route }) {
       <FAB
         icon="plus"
         style={styles.fab}
-        onPress={() => navigation.push('FormPessoa', { acao: adicionarPessoa })}
+        onPress={() => navigation.push('FormPessoaAsyncStorage', { acao: adicionarPessoa })}
       />
 
 

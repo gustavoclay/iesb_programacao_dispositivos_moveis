@@ -3,7 +3,7 @@ import { StyleSheet, View } from 'react-native'
 import { Button, Text, TextInput } from 'react-native-paper'
 import Toast from 'react-native-toast-message'
 
-export default function FormPessoa({ navigation, route }) {
+export default function FormPessoaAsyncStorage({ navigation, route }) {
 
     const { acao, pessoa: pessoaAntiga } = route.params
 
