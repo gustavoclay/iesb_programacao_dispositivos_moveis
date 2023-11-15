@@ -18,3 +18,7 @@ Referências:
 - <https://github.com/jquense/yup>
 - <https://github.com/bhrott/react-native-masked-text>
 - <https://www.genymotion.com/>
+
+Youtube Player
+- <https://lonelycpp.github.io/react-native-youtube-iframe/basic-usage>
+- <https://docs.expo.dev/versions/latest/sdk/webview/>

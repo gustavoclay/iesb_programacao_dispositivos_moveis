@@ -9,6 +9,7 @@ import StackPessoas from '../screens/Pessoas/StackPessoas'
 import StackPessoasAsyncStorage from '../screens/PessoasAsyncStorage/StackPessoasAsyncStorage'
 import StackPessoasFormularioAltoNivel from '../screens/PessoasFormularioAltoNivel/StackPessoasFormularioAltoNivel'
 import Cadastro from '../screens/Cadastro/Cadastro'
+import YoutubeVideo from '../screens/YoutubeVideo'
 
 const Drawer = createDrawerNavigator()
 
@@ -22,6 +23,8 @@ export default function DrawerRoutes() {
             <Drawer.Screen name="Pessoas" component={StackPessoas} />
             <Drawer.Screen name="PessoasAsyncStorage" component={StackPessoasAsyncStorage} />
             <Drawer.Screen name="FormularioAltoNivel" component={StackPessoasFormularioAltoNivel} />
+
+            <Drawer.Screen name="Youtube" component={YoutubeVideo} />
 
             <Drawer.Screen name="Cadastro" component={Cadastro} />
 
