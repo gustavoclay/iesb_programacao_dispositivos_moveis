@@ -1,5 +1,6 @@
 import React, { useCallback, useState } from 'react';
 import { Button, ImageBackground, StyleSheet, View } from 'react-native';
+import { Badge, IconButton } from "react-native-paper";
 import YoutubePlayer from "react-native-youtube-iframe";
 
 export default function YoutubeVideo() {
@@ -28,8 +29,13 @@ export default function YoutubeVideo() {
                     videoId={"uY4efoSe-Kc"}
                     onChangeState={onStateChange}
                 />
+                <View>
+                    <IconButton  icon="camera" size={90} />
+                    <Badge size={40} style={styles.badge} >3</Badge>
+                </View>
 
                 <Button title={playing ? "pause" : "play"} onPress={togglePlaying} />
+
 
             </ImageBackground>
 
@@ -37,4 +43,10 @@ export default function YoutubeVideo() {
     )
 }
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+    badge: {
+        position: 'absolute',
+        top: 10,
+        left: 80,
+    },
+})
