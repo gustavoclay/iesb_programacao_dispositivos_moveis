@@ -18,6 +18,7 @@ Referências:
 - <https://github.com/jquense/yup>
 - <https://github.com/bhrott/react-native-masked-text>
 - <https://www.genymotion.com/>
+- <https://github.com/react-native-picker/picker>
 
 Youtube Player
 - <https://lonelycpp.github.io/react-native-youtube-iframe/basic-usage>
