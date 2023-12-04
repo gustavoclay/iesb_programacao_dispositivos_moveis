@@ -5,7 +5,7 @@ import { Button, Card, Dialog, FAB, MD3Colors, Portal, Text } from 'react-native
 import Toast from 'react-native-toast-message'
 
 
-export default function ListaPessoasFormularioAltoNivel({ navigation, route }) {
+export default function ListaPessoasFormularioAltoNivel({ navigation }) {
 
   const [pessoas, setPessoas] = useState([])
   const [showModalExcluirUsuario, setShowModalExcluirUsuario] = useState(false)
@@ -23,8 +23,6 @@ export default function ListaPessoasFormularioAltoNivel({ navigation, route }) {
     setPessoas(pessoasStorage)
   }
 
-
-
   const showModal = () => setShowModalExcluirUsuario(true);
 
   const hideModal = () => setShowModalExcluirUsuario(false);
@@ -33,7 +31,7 @@ export default function ListaPessoasFormularioAltoNivel({ navigation, route }) {
     let novaListaPessoas = pessoas
     novaListaPessoas.push(pessoa)
     await AsyncStorage.setItem('pessoas', JSON.stringify(novaListaPessoas));
-    setPessoas(novaListaPessoas)
+    loadPessoas()
   }
 
   async function editarPessoa(pessoaAntiga, novosDados) {
@@ -49,14 +47,14 @@ export default function ListaPessoasFormularioAltoNivel({ navigation, route }) {
     })
 
     await AsyncStorage.setItem('pessoas', JSON.stringify(novaListaPessoas))
-    setPessoas(novaListaPessoas)
+    loadPessoas()
 
   }
 
   async function excluirPessoa(pessoa) {
     const novaListaPessoas = pessoas.filter(p => p !== pessoa)
     await AsyncStorage.setItem('pessoas', JSON.stringify(novaListaPessoas))
-    setPessoas(novaListaPessoas)
+    loadPessoas()
     Toast.show({
       type: 'success',
       text1: 'Pessoa excluida com sucesso!'
@@ -85,6 +83,7 @@ export default function ListaPessoasFormularioAltoNivel({ navigation, route }) {
       <FlatList
         style={styles.list}
         data={pessoas}
+        showsVerticalScrollIndicator={false}
         renderItem={({ item }) => (
           <Card
             mode='outlined'
@@ -95,9 +94,10 @@ export default function ListaPessoasFormularioAltoNivel({ navigation, route }) {
             >
               <View style={{ flex: 1 }}>
                 <Text variant='titleMedium'>{item?.nome}</Text>
-                <Text variant='bodyLarge'>Idade: {item?.idade}</Text>
-                <Text variant='bodyLarge'>Altura: {item?.altura} cm</Text>
-                <Text variant='bodyLarge'>Peso: {item.peso} kg</Text>
+                <Text variant='bodyLarge'>CPF: {item?.cpf}</Text>
+                <Text variant='bodyLarge'>Idade: {item?.idade.toString()}</Text>
+                <Text variant='bodyLarge'>Altura: {item?.altura.toString()} cm</Text>
+                <Text variant='bodyLarge'>Peso: {item?.peso.toString()} kg</Text>
               </View>
               <View style={{ flex: 1 }}>
                 <Text variant='titleMedium'>IMC</Text>

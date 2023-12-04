@@ -15,7 +15,7 @@ const Drawer = createDrawerNavigator()
 
 export default function DrawerRoutes() {
     return (
-        <Drawer.Navigator initialRouteName='Cadastro'>
+        <Drawer.Navigator initialRouteName='FormularioAltoNivel'>
 
             <Drawer.Screen name="Home" component={Home} />
             <Drawer.Screen name="Carros" component={ListaCarros} />
@@ -23,10 +23,8 @@ export default function DrawerRoutes() {
             <Drawer.Screen name="Pessoas" component={StackPessoas} />
             <Drawer.Screen name="PessoasAsyncStorage" component={StackPessoasAsyncStorage} />
             <Drawer.Screen name="FormularioAltoNivel" component={StackPessoasFormularioAltoNivel} />
-
-            <Drawer.Screen name="Youtube" component={YoutubeVideo} />
-
             <Drawer.Screen name="Cadastro" component={Cadastro} />
+            <Drawer.Screen name="Youtube" component={YoutubeVideo} />
 
         </Drawer.Navigator>
 

@@ -11,11 +11,8 @@ export default function StackPessoasFormularioAltoNivel() {
             screenOptions={{ headerShown: false }}
             initialRouteName='ListaPessoasFormularioAltoNivel'
         >
-
             <Stack.Screen name='ListaPessoasFormularioAltoNivel' component={ListaPessoasFormularioAltoNivel} />
-
             <Stack.Screen name='FormPessoasFormularioAltoNivel' component={FormPessoasFormularioAltoNivel} />
-
         </Stack.Navigator>
 
     )
