@@ -23,3 +23,32 @@ Referências:
 Youtube Player
 - <https://lonelycpp.github.io/react-native-youtube-iframe/basic-usage>
 - <https://docs.expo.dev/versions/latest/sdk/webview/>
+
+
+ROTEIRO P3
+
+- Criar o projeto
+
+npx create-expo-app crud
+
+- Instalar bibliotecas
+
+Navigation
+npm install @react-navigation/stack
+npx expo install react-native-gesture-handler
+
+Paper
+npm install react-native-paper
+npm install react-native-safe-area-context
+npm install react-native-vector-icons
+
+Async Storage
+npm install @react-native-async-storage/async-storage
+
+Formulários (Formik, Yup, Masked-text)
+npm install formik
+npm install yup
+npm install react-native-masked-text
+
+Toast(Alerta pronto)
+npm i react-native-toast-message
