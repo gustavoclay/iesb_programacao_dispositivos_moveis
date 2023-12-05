@@ -25,30 +25,31 @@ Youtube Player
 - <https://docs.expo.dev/versions/latest/sdk/webview/>
 
 
-ROTEIRO P3
+# ROTEIRO P3
 
-- Criar o projeto
+- **Criar o projeto**
 
-npx create-expo-app crud
+    - npm i -g expo-cli (Comando para instalar o expo na sua maquina)
+    - npx create-expo-app crud (Comando para criar um projeto do 0)
 
-- Instalar bibliotecas
+- **Instalar bibliotecas**
 
-Navigation
-npm install @react-navigation/stack
-npx expo install react-native-gesture-handler
+- Navigation
+    - npm install @react-navigation/stack
+    - npx expo install react-native-gesture-handler
 
-Paper
-npm install react-native-paper
-npm install react-native-safe-area-context
-npm install react-native-vector-icons
+- Paper
+    - npm install react-native-paper
+    - npm install react-native-safe-area-context
+    - npm install react-native-vector-icons
 
-Async Storage
-npm install @react-native-async-storage/async-storage
+- Async Storage
+    - npm install @react-native-async-storage/async-storage
 
-Formulários (Formik, Yup, Masked-text)
-npm install formik
-npm install yup
-npm install react-native-masked-text
+- Formulários (Formik, Yup, Masked-text)
+    - npm install formiksP
+    - npm install yup
+    - npm install react-native-masked-text
 
-Toast(Alerta pronto)
-npm i react-native-toast-message
+- Toast(Alerta pronto)
+    - npm i react-native-toast-message
