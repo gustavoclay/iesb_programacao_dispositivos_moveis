@@ -35,6 +35,7 @@ Youtube Player
 - **Instalar bibliotecas**
 
 - Navigation
+    - npm install @react-navigation/native
     - npm install @react-navigation/stack
     - npx expo install react-native-gesture-handler
 
