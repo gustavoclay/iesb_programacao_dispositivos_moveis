@@ -47,7 +47,7 @@ Youtube Player
     - npm install @react-native-async-storage/async-storage
 
 - Formulários (Formik, Yup, Masked-text)
-    - npm install formiksP
+    - npm install formiks
     - npm install yup
     - npm install react-native-masked-text
 
